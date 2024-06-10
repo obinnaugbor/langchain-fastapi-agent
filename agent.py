@@ -1,3 +1,4 @@
+import os
 import sqlite3
 import requests
 from langchain.chains import LLMChain

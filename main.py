@@ -1,8 +1,11 @@
+import os
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from agent import langchain_agent  # Import langchain_agent from agent.py
 import logging
 from langchain_openai import OpenAI
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
 
 
 class Query(BaseModel):
@@ -11,6 +14,12 @@ class Query(BaseModel):
 app = FastAPI()
 
 logging.basicConfig(level=logging.DEBUG)
+
+# Fetch the API key from environment variables
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Initialize OpenAI LLM with the API key from environment variables
+llm = OpenAI(api_key=OPENAI_API_KEY)
 
 @app.post("/query")
 def handle_query(query: Query):
