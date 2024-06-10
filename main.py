@@ -19,3 +19,9 @@ def handle_query(query: Query):
     if isinstance(result, str) and "Error" in result:
         raise HTTPException(status_code=400, detail=result)
     return {"result": result}
+
+
+# The __main__ block to run the server when executed directly
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
