@@ -2,6 +2,8 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from agent import langchain_agent  # Import langchain_agent from agent.py
 import logging
+from langchain_openai import OpenAI
+
 
 class Query(BaseModel):
     query: str
