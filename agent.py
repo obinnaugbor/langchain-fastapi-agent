@@ -8,7 +8,7 @@ from langchain_openai import OpenAI
 from langchain.prompts import PromptTemplate
 
 # Path to the Northwind Database
-db_path = "northwind-SQLite3/dist/northwind.db"
+db_path = "\northwind-SQLite3\dist\northwind.db"
 
 # Initialize OpenAI LLM
 llm = OpenAI(api_key="sk-proj-ou42ut9DZQeEdM32QvPrT3BlbkFJPSOvWh22fjsfpMcdr6GA")
